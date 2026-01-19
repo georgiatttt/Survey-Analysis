@@ -1,0 +1,60 @@
+import numpy as np
+import pandas as pd
+
+def generate_synthetic_data(n=205, seed=42):
+    np.random.seed(seed)
+    rng = np.random.default_rng(seed)
+
+
+    df = pd.DataFrame({
+        "Agency Name": [f"Agency {i+1}" for i in range(n)],
+        "First Name": ['First Name']*n, 
+        "Last Name": ['Last Name']*n,
+        "Email": ['Email']*n,
+        "Role at your agency (for example, Executive Director or Program Manager)": ['Role']*n,
+        "We have the right kind and amount of operational equipment to meet our program's needs.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "All our operational equipment is in good working order.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Which of these statements best describes your current space? Select all that apply:": [rng.choice(["Our space works well for our distributions.", "We could use help reorganizing or reimagining our distributions.", "We will need to make infrastructure changes to operate.", "We may need to move soon."], size=rng.integers(1, 5), replace=False).tolist() for i in range(n)],
+        "In terms of personnel, what do you need most to support your program? Select all that apply:": [rng.choice(["Paid staff (we currently don't have any)", "More paid staff", "More volunteers", "Increased board engagement", "Increased community support & engagement", "Increased donors and fundraising"], size=rng.integers(1, 7), replace=False).tolist() for i in range(n)],
+        "Please share any other comments you have regarding your operations:": np.random.choice(["comment", "N/A"], size=n),
+        
+        "I wish I had more opportunities to connect with my fellow food pantry and soup kitchen leaders.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "We have a solid group of volunteers we can rely on.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Our volunteers are recognized and supported for their service and their feedback is a valuable part of our program.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Our agency’s leaders and managers are sensitive to the cultural and racial dynamics in the communities we serve.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Please share any other comments you have regarding leadership and management:": np.random.choice(["comment", "N/A"], size=n),
+            
+        "How do you currently track your program data? Select all that apply:": [rng.choice(["Plentiful", "FeedNYC", "Excel", "Pen and paper"], size=rng.integers(1, 5), replace=False).tolist() for i in range(n)],
+        "Could you use support or training around tracking your data and evaluating your programming?": np.random.choice(["Yes - we would like support setting up ways to track data and measure impact", "No - we feel confident in our ability to track data and measure impact and could serve as an example for others", "Not sure"], size=n),
+        "Please share any other comments you have regarding data and evaluation:": np.random.choice(["comment", "N/A"], size=n),
+    
+        "Our agency is familiar with the City Harvest Policy Platform.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Our agency is aware of city, state, and federal policies that impact food insecurity in NYC.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "As an agency, we know how to get in touch with local, state, and federal elected officials.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Do you participate in advocacy coalitions at the city, state, or national level?": np.random.choice(["Yes", "No", "Not sure"], size=n),
+        "If so, which coalitions are you a part of?": np.random.choice(["comment", "N/A"], size=n),
+        "Please share any other comments you have regarding advocacy:": np.random.choice(["comment", "N/A"], size=n),
+    
+        "City Harvest delivers food that meets the cultural, religious and dietary needs of our clients.": np.random.choice(["Never", "Rarely", "Sometimes", "Usually", "Always"], size=n),
+        "On average, how would you rate the food you receive from City Harvest?": np.random.choice(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'N/A'], size=n),
+        "Does CH deliver the right amount of food to your program?": np.random.choice(["No - the amount is too little.", "No - the amount is too much.", "Yes - the amount we get is just right."], size=n),
+        "How would you prefer to receive your deliveries from CH?": np.random.choice(["As a standard single-item pallet.", "As a pallet with 3-4 different varieties of produce."], size=n),
+        "How often do CH deliveries arrive in your planned time window": np.random.choice(["Never", "Rarely", "Sometimes", "Usually", "Always"], size=n),      
+        "If you currently are using Harvest Hub, what do you use it for? Select all that apply:": [rng.choice(["Communicating with City Harvest.", "Leaving feedback for City Harvest.", "Updating my program contact information.", "Viewing my City Harvest allocation.", "I don't use Harvest Hub.", "I don't currently use Harvest Hub, but would like help getting started."], size=rng.integers(1, 7), replace=False).tolist() for i in range(n)],
+        "How frequently does your agency use the City Harvest 'Harvest Hub Portal?": np.random.choice(["Daily", "Weekly", "Monthly", "Other"], size=n),
+        "Please share any other comments you have regarding City Harvest:": np.random.choice(["comment", "N/A"], size=n),
+    
+        "We receive monetary funding and donations from different sources.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "We have a developed budget that accurately reflects expenses and income.": np.random.choice(["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly Agree", "N/A"], size=n),
+        "Is City Harvest's grant portal helpful in identifying and applying for funding opportunities?": np.random.choice(["No", "Yes", "Not sure, I don't know what that is."], size=n),
+        "Please share any other comments you have regarding funding and financial stability:": np.random.choice(["comment", "N/A"], size=n),
+    
+        "CH partners have reported that wait times for clients are increasing across the city for many reasons. Has your program tried any strategies to reduce wait time for your clients? What has worked best for your program?": np.random.choice(["comment", "N/A"], size=n),        
+        "How has communication with your clients been in the last year? Please select all that apply:": [rng.choice(["We have had no issues.", "We have had some language barriers.", "We have had to try new things to overcome communication issues"], size=rng.integers(1, 4), replace=False).tolist() for i in range(n)],
+        "Have you tried any of the following strategies to better communicate with your clients? Please select all that apply:": [rng.choice(["Digital client choice.", "Recruited multi-lingual volunteers.", "Used a technology to help translate in the moment, such as google translate or pocket translator.", "Started learning a new language to better accommodate our clients."], size=rng.integers(1, 5), replace=False).tolist() for i in range(n)],
+        "Which of the following languages do you encounter regularly? Select all that apply:": [rng.choice(["English", "Spanish", "Chinese (including Cantonese and Mandarin)", "Russian", "Bengali", "French Creole", "French", "Arabic"], size=rng.integers(1, 9), replace=False).tolist() for i in range(n)],
+        "How often do you ask your clients for feedback and make changes based on their responses?": np.random.choice(["Never", "Rarely", "Sometimes", "Usually", "Always"], size=n),
+        "What additional changes or challenges has your food program experienced in the last year?": np.random.choice(["comment", "N/A"], size=n),
+        "Please share any other comments you have regarding your community, program and/or clients:": np.random.choice(["comment", "N/A"], size=n),
+})
+    return df 
