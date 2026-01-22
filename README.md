@@ -1,40 +1,34 @@
-# City Harvest Partner Data Analysis (Portfolio Project)
+# City Harvest Capacity Analysis
 
-This repository presents a  replication of data analysis work I previously completed with City Harvest. The project demonstrates how partner survey data can be cleaned, explored, and transformed into interpretable scoring metrics to support nonprofit program evaluation.
+This project analyzes operational and demographic survey data from food pantries to better understand capacity constraints, resource gaps, and service coverage.
 
-All data used here is synthetic or anonymized and is intended solely to illustrate analytical methods and workflow design.
+The goal is to transform raw survey data into structured metrics and scores that can support data-driven decision making.
 
-## Project Overview
-The analysis simulates a nonprofit data pipeline, including:
-- Cleaning and structuring survey-style partner data
-- Exploratory data analysis (EDA) to understand response patterns
-- Feature engineering from categorical and multi-select survey fields
-- Construction of transparent, rule-based scoring metrics
-- Aggregation of indicators into comparable partner-level scores
+---
 
-The focus is on clarity, interpretability, and reproducibility rather than predictive modeling.
+## Overview
 
-## Project Components
-- `CH.ipynb`: Data cleaning and exploratory analysis
-- `Scoring.ipynb`: Feature engineering and scoring logic
-- `data_synthesis.py`: Synthetic data generation to mirror real survey structure
-- `README.md`: Project context and documentation
+Using cleaned and synthesized survey data, this project explores relationships between pantry capacity, demand, staffing, and neighborhood characteristics. The analysis focuses on creating interpretable features and scoring logic rather than black-box prediction.
 
-## Methods & Skills Demonstrated
-- Data cleaning and preprocessing in Python
-- Exploratory data analysis (EDA)
-- Feature engineering from survey data
-- Rule-based scoring and metric design
-- Reproducible analysis with Jupyter Notebooks
-- Ethical handling of sensitive data through synthesis and anonymization
+Work is organized to clearly separate exploration, modeling logic, and reusable code.
 
-## Tools Used
-- Python
-- pandas, numpy
-- Jupyter Notebook
+---
 
-## Data Ethics & Disclosure
-- This repository does **not** contain proprietary or confidential City Harvest data
-- All datasets are synthetic or modified for demonstration purposes
-- The project reflects methodology and workflow, not operational results
+## Key Components
 
+- Data cleaning and preprocessing of partner survey responses  
+- Feature engineering and capacity scoring methodology  
+- Exploratory analysis of operational and demographic patterns  
+- Modular Python code to support reuse and iteration  
+
+---
+
+## Project Structure
+
+```text
+CH/
+├── notebooks/          # Exploratory analysis and scoring notebooks
+├── src/                # Reusable data processing and scoring logic
+├── data/               # Raw and processed datasets
+├── requirements.txt    # Python dependencies
+└── README.md
