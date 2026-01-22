@@ -2,15 +2,15 @@
 
 This project analyzes operational and demographic survey data from food pantries to better understand capacity constraints, resource gaps, and service coverage.
 
-The goal is to transform raw survey data into structured metrics and scores that can support data-driven decision making.
+The goal is to transform raw survey data into structured metrics and scores that support data-driven decision making.
 
 ---
 
 ## Overview
 
-Using cleaned and synthesized survey data, this project explores relationships between pantry capacity, demand, staffing, and neighborhood characteristics. The analysis focuses on creating interpretable features and scoring logic rather than black-box prediction.
+Using cleaned and synthesized survey data, this project explores relationships between pantry capacity, demand, staffing, and neighborhood characteristics. The analysis emphasizes interpretable feature engineering and scoring logic rather than black-box prediction.
 
-Work is organized to clearly separate exploration, modeling logic, and reusable code.
+Work is organized to clearly separate exploration, scoring methodology, and reusable code.
 
 ---
 
@@ -32,3 +32,4 @@ CH/
 ├── data/               # Raw and processed datasets
 ├── requirements.txt    # Python dependencies
 └── README.md
+
